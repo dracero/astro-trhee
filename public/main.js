@@ -1,4 +1,4 @@
-import { World } from './World/World.js';
+import { World } from '../src/World/World.js';
 
 
 function main() {
