@@ -1,6 +1,47 @@
 ---
-import Card from '../components/Card.astro';
+
 ---
+<script>
+	import { World } from '../World/World.js';
+	
+	function main() {
+		// Get a reference to the container element
+		const container = document.querySelector('#scene-container');
+		// 1. Create an instance of the World appc
+		const world = new World(container);
+		// We can access member variables from the instance
+		console.log(world.camera);
+		console.log(world.renderer);
+		console.log(world.scene);
+		
+		// 2. Render the scene
+		world.render();
+    }
 
-<Card />
+main();
+</script>
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>Discoverthreejs.com - The Structure of a three.js App</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+
+  <link rel="icon" href="https://discoverthreejs.com/favicon.ico" type="image/x-icon">
+  
+  <link href="main.css" rel="stylesheet" type="text/css">
+
+  <script type="module" src="main.js"></script>
+</head>
+
+<body>
+  <h1>Discoverthreejs.com - Nothing to see here yet :)</h1>
+
+  <div id="scene-container">
+	<canvas></canvas>
+  </div>
+</body>
+
+</html>
