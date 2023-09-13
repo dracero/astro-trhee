@@ -2,24 +2,22 @@
 
 ---
 <script>
+	//main.js
 	import { World } from '../World/World.js';
 	
 	function main() {
 		// Get a reference to the container element
 		const container = document.querySelector('#scene-container');
 		// 1. Create an instance of the World appc
-		const world = new World(container);
-		// We can access member variables from the instance
-		console.log(world.camera);
-		console.log(world.renderer);
-		console.log(world.scene);
-		
-		// 2. Render the scene
-		world.render();
+		const world = new World(container);		
+		// start the animation loop
+		world.start();
     }
 
 main();
 </script>
+
+<!--Index.html -->
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +31,6 @@ main();
   
   <link href="main.css" rel="stylesheet" type="text/css">
 
-  <script type="module" src="main.js"></script>
 </head>
 
 <body>
