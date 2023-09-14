@@ -23,14 +23,13 @@ class World {
     container.append(renderer.domElement);
 
     const cube = createCube();
-    const light = createLights();
-
+    const { ambientLight, mainLight } = createLights();
     const controls = createControls(camera, renderer.domElement);
 
     //loop.updatables.push(cube);
     loop.updatables.push(controls);   
     
-    scene.add(cube, light);
+    scene.add(ambientLight, mainLight, cube);
 
     scene.add(cube);
 
