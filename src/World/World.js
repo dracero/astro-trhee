@@ -1,5 +1,5 @@
 import { createCamera } from '../components/camera.js';
-//import { createMeshGroup } from '../components/meshGroup.js';
+import { createMeshGroup } from '../components/meshGroup.js';
 import { createScene } from '../components/scene.js';
 import { createLights } from '../components/lights.js';
 import { createRenderer } from '../systems/renderer.js';
@@ -23,10 +23,10 @@ class World {
     loop = new Loop(camera, scene, renderer);
     container.append(renderer.domElement);
     const { ambientLight, mainLight } = createLights();
-    //const meshGroup = createMeshGroup();
-    scene.add(ambientLight, mainLight)//, meshGroup);
+    const meshGroup = createMeshGroup();
+    scene.add(ambientLight, mainLight, meshGroup);
     const controls = createControls(camera, renderer.domElement);
-    loop.updatables.push(controls)//, meshGroup);
+    loop.updatables.push(controls, meshGroup);
 
     //loop.updatables.push(cube);
     loop.updatables.push(controls);   
@@ -37,7 +37,7 @@ class World {
 
   render() {
     // draw a single frame
-    //renderer.render(scene, camera);
+    renderer.render(scene, camera);
   }
   start() {
     loop.start();
@@ -50,7 +50,7 @@ class World {
     // asynchronous setup here
     // load bird models 
     const { parrot } = await loadBirds();
-    scene.add(parrot);
+    //scene.add(parrot);
   }
 
 }

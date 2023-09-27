@@ -11,13 +11,14 @@ class Resizer {
     // set initial size
     setSize(container, camera, renderer);
 
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       // set the size again if a resize occurs
       setSize(container, camera, renderer);
       // perform any custom actions
       this.onResize();
     });
   }
+
   onResize() {}
 }
 
